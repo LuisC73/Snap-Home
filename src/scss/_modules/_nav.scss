@@ -1,0 +1,56 @@
+@use "../_layout/vars" as vars;
+@use "../_layout/mixins" as mixin;
+
+.nav {
+  width: 100vw;
+  padding: 1.4rem 0.7rem 1rem 0.7rem;
+  @include mixin.flex(space-between, center, row);
+  &__img {
+    width: 4.5rem;
+  }
+
+  &__ul {
+    @include mixin.flex(center, flex-start, row);
+  }
+
+  &__li {
+    margin-left: 2rem;
+    position: relative;
+    &:last-child {
+      margin-right: 2rem;
+    }
+  }
+
+  &__a {
+    font-size: 0.8rem;
+    transition: 0.4s;
+    display: inline;
+    font-weight: 500;
+    color: vars.$gray;
+
+    &:hover {
+      font-weight: 700;
+      color: vars.$black;
+    }
+  }
+
+  &__icon {
+    font-size: 0.7rem;
+    vertical-align: middle;
+    width: 0.7rem;
+    display: inline;
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: 180%;
+    right: 0;
+    display: none;
+    background-color: vars.$white2;
+    padding: .7rem 1rem;
+    width: 8.42rem;
+    border-radius: .6rem;
+    transition: .4s ease-in-out;
+    box-shadow: 1px 1px 8px vars.$gray;
+  }
+}

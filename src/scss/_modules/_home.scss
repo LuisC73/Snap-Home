@@ -1,0 +1,44 @@
+@use "../_layout/vars" as vars;
+@use "../_layout/mixins" as mixin;
+
+.home{
+    width: 100vw;
+    height: 100vh;
+    @include mixin.flex(space-between, center, row);
+    padding: 0rem 8rem;
+    &__h1{
+        font-size: 4rem;
+        text-align: start;
+        font-weight: 700;
+        
+    }
+    &__div{
+        padding: 0 2rem;
+    }
+
+    &__figure{
+        margin-left: 4rem;
+    }
+
+    &__p{
+        color: vars.$gray;
+        font-size: 1rem;
+    }
+
+    &__icon{
+        width: 5rem;
+
+        &:not(:first-child){
+            margin-left: 1rem;
+        }
+    }
+
+    &__logos{
+        width: 100%;
+        @include mixin.flex(center, center, row);
+    }
+
+    &__img{
+        width: 23rem;
+    }
+}
