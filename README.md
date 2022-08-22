@@ -15,7 +15,7 @@
 ### Built With
 
 - [React](https://reactjs.org/)
-- [Scss](https://sass-lang.com/)
+- [Sass](https://sass-lang.com/)
 
 
 ## How To Use
@@ -24,6 +24,7 @@
 # Clone this repository
 $ git clone https://github.com/LuisC73/Snap-Home.git
 
+#Run the project
 npm start
 
 ```
