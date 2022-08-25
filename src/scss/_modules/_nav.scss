@@ -4,13 +4,50 @@
 .nav {
   width: 100vw;
   padding: 1.4rem 0.7rem 1rem 0.7rem;
-  @include mixin.flex(space-between, center, row);
+  @include mixin.flex(center, center, row);
+  position: relative;
+
+  @include mixin.mediaMovil() {
+    justify-content: space-between;
+  }
+
   &__img {
     width: 4.5rem;
   }
 
+  &__logo {
+    margin-left: 2rem;
+
+    @include mixin.mediaMovil() {
+      margin-left: 0rem;
+    }
+  }
+
+  &__content {
+    @include mixin.flex(space-between, flex-start, row);
+    width: 100%;
+
+    @include mixin.mediaMovil() {
+      @include mixin.flex(flex-start, flex-start, column);
+      background: vars.$white;
+      height: 100vh;
+      width: 70vw;
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translateY(100%);
+      transition: .4s ease-in-out;
+    }
+  }
+
   &__ul {
-    @include mixin.flex(center, flex-start, row);
+    @include mixin.flex(center, center, row);
+
+    @include mixin.mediaMovil() {
+      @include mixin.flex(center, flex-start, column);
+      row-gap: 1rem;
+      height: 30vh;
+    }
   }
 
   &__li {
@@ -32,6 +69,10 @@
       font-weight: 700;
       color: vars.$black;
     }
+
+    @include mixin.mediaMovil() {
+      font-size: 1.1rem;
+    }
   }
 
   &__icon {
@@ -47,10 +88,32 @@
     right: 0;
     display: none;
     background-color: vars.$white2;
-    padding: .7rem 1rem;
+    padding: 0.7rem 1rem;
     width: 8.42rem;
-    border-radius: .6rem;
-    transition: .4s ease-in-out;
+    border-radius: 0.6rem;
+    transition: 0.4s ease-in-out;
     box-shadow: 1px 1px 8px vars.$gray;
+  }
+
+  &__menu {
+    display: none;
+    @include mixin.mediaMovil() {
+      display: block;
+      font-size: 2rem;
+      width: fit-content;
+    }
+  }
+
+  &__close {
+    display: none;
+
+    @include mixin.mediaMovil() {
+      display: block;
+      margin-left: auto;
+      font-size: 2rem;
+      margin-top: 1rem;
+      width: fit-content;
+      margin-right: 1rem;
+    }
   }
 }

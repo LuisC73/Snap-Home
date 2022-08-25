@@ -4,29 +4,61 @@
 .home{
     width: 100vw;
     height: 100vh;
-    @include mixin.flex(space-between, center, row);
-    padding: 0rem 8rem 2rem 8rem;
+    @include mixin.flex(center, center, column);
+
+    &__container{
+        width: 80%;
+        @include mixin.flex(space-between, center, row);
+
+        @include mixin.mediaMovil(){
+            @include mixin.flex(center, center, column-reverse);
+            width: 100%;
+        }
+    }
     
     &__h1{
         font-size: 3.5rem;
         text-align: start;
         font-weight: 700;
         margin-top: 5rem;
+
+        @include mixin.mediaMovil(){
+            text-align: center;
+            font-size: 3rem;
+        }
     }
     &__div{
         padding: 0 2rem;
+        row-gap: 2rem;
+        @include mixin.flex(start, flex-start, column);
+        @include mixin.mediaMovil(){
+            text-align: center;
+            padding: 0;
+            @include mixin.flex(center, center, column);
+        }
     }
 
     &__figure{
         margin-left: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        @include mixin.mediaMovil(){
+            margin: 0;
+        }
     }
 
     &__p{
         color: vars.$gray;
         font-size: .9rem;
-        margin-top: 2rem;
         padding-right: 7.8rem;
         font-weight: 500;
+
+        @include mixin.mediaMovil(){
+            padding-right: 0;
+            text-align: center;
+        }
     }
 
     &__icon{
@@ -39,10 +71,14 @@
         &:nth-child(2){
             width: 3rem;
         }
+
+        @include mixin.mediaMovil(){
+            width: 4rem;
+            margin-left: .4rem;
+        }
     }
 
     &__button{
-        margin-top: 2rem;
         background-color: vars.$black;
         color: vars.$white;
         border-radius: .8rem;
@@ -56,11 +92,16 @@
     &__logos{
         width: 100%;
         @include mixin.flex(space-evenly, center, row);
-        margin-top: 5rem;
+        margin-top: 3rem;
     }
 
     &__img{
         width: 23rem;
-        margin: 0 0 2rem 3rem;
+        margin: 0 0 2rem 6rem;
+
+        // @include mixin.mediaMovil(){
+        //     margin: 0;
+        //     width: 12rem;
+        // }
     }
 }

@@ -1,37 +1,63 @@
-@use '../_layout/vars' as vars;
-@use '../_layout/mixins' as mixin;
+@use "../_layout/vars" as vars;
+@use "../_layout/mixins" as mixin;
 
-.nav{
-    &__a--button{
-        padding: .6rem .8rem;
-        border: 1px solid vars.$gray;
-        border-radius: .7rem;
-        transition: .4s;
+.nav {
+  &__a--button {
+    padding: 0.6rem 0.8rem;
+    border: 1px solid vars.$gray;
+    border-radius: 0.7rem;
+    transition: 0.4s;
 
-        &:hover{
-            border: 1px solid vars.$black;
-        }
+    &:hover {
+      border: 1px solid vars.$black;
     }
+  }
 
-    &__li--down{
-        &:hover .nav__dropdown{
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-        }
+  &__li--down {
+    &:hover .nav__dropdown {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
     }
+  }
 
-    &__li--drop{
-        margin: .2rem 0;
-    }
+  &__li--drop {
+    margin: 0.2rem 0;
+  }
 
-    &__a--drop{
-        font-size: .74rem;
-    }
+  &__a--drop {
+    font-size: 0.74rem;
+  }
 
-    &__icon--drop{
-        width: .6rem;
-        margin-right: .7rem;
+  &__icon--drop {
+    width: 0.6rem;
+    margin-right: 0.7rem;
+  }
+
+  &__ul--center {
+    @include mixin.mediaMovil() {
+      @include mixin.flex(center, center, column);
+      width: 100%;
     }
+  }
+
+  &__li--center {
+    @include mixin.mediaMovil() {
+      text-align: center;
+      margin-left: 0;
+    }
+  }
+
+  //   &__close--active{
+
+  //   }
+
+  &__content--active {
+    transform: translateY(0);
+  }
+}
+
+.App--active {
+  background: rgba($color: #000000, $alpha: 0.5);
 }

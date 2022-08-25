@@ -5,6 +5,7 @@ function Home() {
   return (
     <main className="main">
       <section className="home">
+        <div className='home__container'>
         <div className="home__div">
           <h1 className="home__h1">Make <br/> remote work</h1>
           <p className="home__p">
@@ -24,6 +25,7 @@ function Home() {
         <figure className="home__figure">
             <img src={images['hero-desktop']} alt="" className="home__img" />
         </figure>
+        </div>
       </section>
     </main>
   );
