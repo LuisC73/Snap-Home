@@ -3,11 +3,11 @@
 
 .home{
     width: 100vw;
-    height: 100vh;
     @include mixin.flex(center, center, column);
-
+    overflow-x: hidden;
     &__container{
         width: 80%;
+        margin-top: 2rem;
         @include mixin.flex(space-between, center, row);
 
         @include mixin.mediaMovil(){
@@ -99,9 +99,9 @@
         width: 23rem;
         margin: 0 0 2rem 6rem;
 
-        // @include mixin.mediaMovil(){
-        //     margin: 0;
-        //     width: 12rem;
-        // }
+        @include mixin.mediaMovil(){
+            margin: 0;
+            width: 12rem;
+        }
     }
 }

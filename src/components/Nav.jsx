@@ -1,22 +1,25 @@
-import React from "react";
+import React,{useState} from "react";
 import { GoChevronDown, GoChevronUp, GoThreeBars,GoX } from "react-icons/go";
 import images from "../helpers/images";
 
 function Nav() {
+  const [menu, setMenu] = useState(false);
+  const [dropDown, setDropDown] = useState(false);
+  const [dropDown2, setDropDown2] = useState(false);
   return (
     <header className="header">
       <nav className="nav">
         <div className="nav__logo">
           <img src={images.logo} alt="Logo Snap" className="nav__img" />
         </div>
-        <div className="nav__content">
-          <GoX className="nav__close"/>
+        <div className={`nav__content ${menu ? "nav__content--active" : ""}`}>
+          <GoX className="nav__close" onClick={() => setMenu(!menu)}/>
         <ul className="nav__ul">
-          <li className="nav__li  nav__li--down">
+          <li className="nav__li  nav__li--down" onClick={() => setDropDown(!dropDown)}>
             <a href="#" className="nav__a">
-              Features <GoChevronDown className="nav__icon" />
+              Features {dropDown ? <GoChevronUp className="nav__icon" /> : <GoChevronDown className="nav__icon" /> }
             </a>
-            <ul className="nav__dropdown">
+            <ul className={`nav__dropdown ${dropDown ? "nav__dropdown--active" : ""}`}>
               <li className="nav__li nav__li--drop">
                 <img
                   src={images.list}
@@ -59,11 +62,11 @@ function Nav() {
               </li>
             </ul>
           </li>
-          <li className="nav__li nav__li--down">
+          <li className="nav__li nav__li--down" onClick={() => setDropDown2(!dropDown2)}>
             <a href="#" className="nav__a">
-              Company <GoChevronDown className="nav__icon" />
+              Company {dropDown2 ? <GoChevronUp className="nav__icon" /> : <GoChevronDown className="nav__icon" /> }
             </a>
-            <ul className="nav__dropdown">
+            <ul className={`nav__dropdown ${dropDown2 ? "nav__dropdown--active" : ""}`}>
               <li className="nav__li nav__li--drop">
                 <a href="#" className="nav__a nav__a--drop">
                   History
@@ -105,7 +108,7 @@ function Nav() {
           </li>
         </ul>
         </div>
-        <GoThreeBars className="nav__menu" />
+        <GoThreeBars className="nav__menu" onClick={() => setMenu(!menu)}/>
       </nav>
     </header>
   );
